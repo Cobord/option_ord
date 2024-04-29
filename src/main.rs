@@ -1,15 +1,12 @@
-fn main() {
-
-}
+fn main() {}
 
 mod test {
 
-
     #[test]
     fn simple() {
+        use option_ord::transparent_option_ord;
         use std::cmp::Ordering;
-        use my_macro::transparent_option_ord;
-        
+
         #[transparent_option_ord(true)]
         struct MyOption(Option<i32>);
 
@@ -20,11 +17,13 @@ mod test {
 
     #[test]
     fn generic() {
+        use option_ord::transparent_option_ord;
         use std::cmp::Ordering;
-        use my_macro::transparent_option_ord;
-        
+
         #[transparent_option_ord(false)]
-        struct MyOption<T>(Option<T>) where T : Ord;
+        struct MyOption<T>(Option<T>)
+        where
+            T: Ord;
 
         let x = MyOption(Some(1));
         let y = MyOption(None);

@@ -15,7 +15,7 @@ pub fn transparent_option_ord(attr: TokenStream, item: TokenStream) -> TokenStre
     let name = &input.ident.clone();
     let generics = input.generics.clone();
     let (impl_generics, ty_generics, where_clause) = generics.split_for_impl();
-    
+
     let ord_impl = if is_none_smallest.value {
         quote! {
             impl #impl_generics #name #ty_generics #where_clause {
@@ -43,13 +43,13 @@ pub fn transparent_option_ord(attr: TokenStream, item: TokenStream) -> TokenStre
             }
         }
     };
-    
+
     let expanded = quote! {
         #[repr(transparent)]
         #[derive(PartialOrd,PartialEq,Eq)]
         #input
         #ord_impl
     };
-    
+
     TokenStream::from(expanded)
 }

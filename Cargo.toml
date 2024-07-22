@@ -2,6 +2,9 @@
 name = "option_ord"
 version = "0.1.0"
 edition = "2021"
+license = "MIT"
+description = "configure ordering on 1+T with the 1 either smallest or largest, explicit vs derive default"
+repository = "https://github.com/Cobord/option_ord"
 
 [lib]
 proc-macro = true

@@ -56,8 +56,6 @@ pub fn transparent_option_ord(attr: TokenStream, item: TokenStream) -> TokenStre
         }
     };
 
-    
-
     let expanded = quote! {
         #[repr(transparent)]
         #[derive(PartialEq,Eq)]

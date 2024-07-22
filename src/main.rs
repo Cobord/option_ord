@@ -13,7 +13,7 @@ mod test {
         let x = MyOption(Some(1));
         let y = MyOption(None);
         assert!((&y).option_cmp(&x) == Ordering::Less);
-        assert!(y<x);
+        assert!(y < x);
     }
 
     #[test]
@@ -29,6 +29,6 @@ mod test {
         let x = MyOption(Some(1));
         let y = MyOption(None);
         assert!((&y).option_cmp(&x) == Ordering::Greater);
-        assert!(y>x);
+        assert!(y > x);
     }
 }

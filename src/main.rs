@@ -1,5 +1,6 @@
 fn main() {}
 
+#[allow(clippy::non_canonical_partial_ord_impl)]
 mod test {
 
     #[test]
@@ -12,7 +13,7 @@ mod test {
 
         let x = MyOption(Some(1));
         let y = MyOption(None);
-        assert!((&y).option_cmp(&x) == Ordering::Less);
+        assert!(y.option_cmp(&x) == Ordering::Less);
         assert!(y < x);
     }
 
@@ -28,7 +29,7 @@ mod test {
 
         let x = MyOption(Some(1));
         let y = MyOption(None);
-        assert!((&y).option_cmp(&x) == Ordering::Greater);
+        assert!(y.option_cmp(&x) == Ordering::Greater);
         assert!(y > x);
     }
 }

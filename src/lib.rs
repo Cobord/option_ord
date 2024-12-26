@@ -44,11 +44,13 @@ pub fn transparent_option_ord(attr: TokenStream, item: TokenStream) -> TokenStre
         }
     };
     let ord_impl = quote! {
+        #[allow(clippy::non_canonical_partial_ord_impl)]
         impl #impl_generics PartialOrd for #name #ty_generics #where_clause {
             fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
                 Some(self.option_cmp(other))
             }
         }
+        #[allow(clippy::non_canonical_ord_impl)]
         impl #impl_generics Ord for #name #ty_generics #where_clause {
             fn cmp(&self, other: &Self) -> std::cmp::Ordering {
                 self.option_cmp(other)

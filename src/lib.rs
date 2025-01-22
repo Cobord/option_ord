@@ -4,10 +4,9 @@ use proc_macro::TokenStream;
 use quote::quote;
 use syn::{parse_macro_input, ItemStruct, LitBool};
 
-/*
-#[transparent_option_ord(true)] means you want the usual order on some and treat None as smaller than everything else
-#[transparent_option_ord(false)] means you want the usual order on some and treat None as bigger than everything else
-*/
+/// `#[transparent_option_ord(true)]` means you want the usual order on some and treat None as smaller than everything else
+///
+/// `#[transparent_option_ord(false)]` means you want the usual order on some and treat None as bigger than everything else
 #[proc_macro_attribute]
 pub fn transparent_option_ord(attr: TokenStream, item: TokenStream) -> TokenStream {
     let is_none_smallest = parse_macro_input!(attr as LitBool);

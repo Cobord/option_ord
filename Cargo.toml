@@ -1,6 +1,6 @@
 [package]
 name = "option_ord"
-version = "0.1.2"
+version = "0.1.3"
 edition = "2021"
 license = "MIT"
 description = "configure ordering on 1+T with the 1 either smallest or largest, explicit vs derive default"
